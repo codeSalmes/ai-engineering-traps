@@ -1,0 +1,5 @@
+part_id,nominal_uF,voltage_rating,derating_pct_at_12V,cost
+CAP-001,10.0,16V,50%,$0.10
+CAP-002,10.0,25V,75%,$0.15
+CAP-003,22.0,16V,50%,$0.20
+CAP-004,22.0,25V,80%,$0.30
