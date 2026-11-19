@@ -20,10 +20,10 @@ Every task in this repository is designed with a specific **trap**:
 
 ### [Task 1: SPI Reverse-Engineering](./task-1-spi-reverse-engineering/)
 **The Challenge:** The AI is given raw SPI byte captures from a sensor. It must deduce the bit layout, byte order, scaling factors, and implement a CRC-8 check from scratch.
-*   **The Trap:** The AI must parse the reference data to figure out the scaling, and identify that packet `202` has a corrupted CRC. 
+*   **The Trap:** The AI must parse the reference data to figure out the scaling, and identify that exactly one packet (`202`) has a corrupted CRC, while `201` and `203` are mathematically valid. 
 *   **The Results:** **Claude Opus failed 6/6 times.** Qwen3.8 Max timed out on 30-minute limits multiple times trying to figure out the byte order. 
 *   *(See the [evaluation results](./task-1-spi-reverse-engineering/results/spi_eval_results.png) for proof).*
-
+*   
 ### [Task 2: Capacitor DC Bias Derating](./task-2-capacitor-derating/)
 **The Challenge:** Select a replacement capacitor for a 12V rail. The AI must calculate the *effective* capacitance by applying the DC bias derating curve from the datasheet.
 *   **The Trap:** The AI looks at the nominal capacitance (10uF) and picks the cheapest part (`CAP-002`). It ignores that at 12V, the capacitance drops by 75%, making it only 7.5uF (failing the 8.0uF requirement).
