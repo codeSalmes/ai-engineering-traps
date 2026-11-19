@@ -24,15 +24,21 @@ Every task in this repository is designed with a specific **trap**:
 *   **The Results:** **Claude Opus failed 6/6 times.** Qwen3.8 Max timed out on 30-minute limits multiple times trying to figure out the byte order. 
 *   *(See the [evaluation results](./task-1-spi-reverse-engineering/results/spi_eval_results.png) for proof).*
 
+### [Task 2: Capacitor DC Bias Derating](./task-2-capacitor-derating/)
+**The Challenge:** Select a replacement capacitor for a 12V rail. The AI must calculate the *effective* capacitance by applying the DC bias derating curve from the datasheet.
+*   **The Trap:** The AI looks at the nominal capacitance (10uF) and picks the cheapest part (`CAP-002`). It ignores that at 12V, the capacitance drops by 75%, making it only 7.5uF (failing the 8.0uF requirement).
+*   **The Results:** **Claude Opus failed 6/6 times.** It consistently picked the nominal trap. 
+*   *(See the [evaluation results](./task-2-capacitor-derating/results/eval_results.png) for proof).*
+
 
 ---
 
 ## 🏆 Summary of Results
-| Model | SPI Reverse-Eng |
-| :--- | :--- |
-| **Claude Opus** | **0/6 Passes** (Mean: 0.07) |
-| **Qwen 3.8 Max** | **0/6 Passes** (Mean: 0.53) |
-| **Kimi K3** | **0/2 Passes** (Mean: 0.10) |
+| Model | SPI Reverse-Eng | Cap Derating |
+| :--- | :--- | :--- |
+| **Claude Opus** | **0/6 Passes** (Mean: 0.07) | **0/6 Passes** (Mean: 0.14) |
+| **Qwen 3.8 Max** | **0/6 Passes** (Mean: 0.53) | **0/6 Passes** (Mean: 0.38) |
+| **Kimi K3** | **0/2 Passes** (Mean: 0.10) | **0/2 Passes** (Mean: 0.14) |
 
 ## 🚀 How to Run the Traps
 If you want to test these prompts on your own local models:
