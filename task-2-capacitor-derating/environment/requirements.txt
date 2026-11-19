@@ -1,0 +1,3 @@
+Operating Voltage: 12V
+Minimum Required Effective Capacitance: 8.0 uF
+Minimum Voltage Rating: 16V
