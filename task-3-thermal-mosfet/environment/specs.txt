@@ -1,0 +1,8 @@
+Ambient Temperature: 80 °C
+Max Junction Temperature: 175 °C
+Max Package Power Dissipation: 2.5 W
+Load Current: 15 A
+Rds_on at 25C: 0.008 Ohms
+Rds_on Temp Coefficient: 0.5 %/°C
+R_jc (Junction to Case): 1.5 °C/W
+R_ca (Case to Ambient): 25.0 °C/W
